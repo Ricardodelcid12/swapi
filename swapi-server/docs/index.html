@@ -1,0 +1,130 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>swapi-server</title><meta name="description" content="Documentation for swapi-server"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/search.js" id="tsd-search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">swapi-server</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-content">
+<div class="tsd-page-title">
+<h2>swapi-server</h2></div>
+<div class="tsd-panel tsd-typography"><a id="md:swapi-people" class="tsd-anchor"></a><h1><a href="#md:swapi-people">SWAPI People</a></h1><p>This is a sample application to interact with <a href="https://swapi.dev/api/">https://swapi.dev/api/</a>, that allows users to retrieve people information and save that people in a local database.</p>
+<a id="md:features--use-cases" class="tsd-anchor"></a><h2><a href="#md:features--use-cases">Features / Use Cases</a></h2><ul>
+<li>Retrieve people from SWAPI through the client application: <code>GetSwapiPeople</code></li>
+<li>Save people on local database: <code>SavePeople</code></li>
+<li>Get people from local database: <code>GetPeople</code></li>
+</ul>
+<a id="md:architecture" class="tsd-anchor"></a><h2><a href="#md:architecture">Architecture</a></h2><p>The application follows the <code>Clean Architecture</code>to take advantage of layers separation, single responsibility, and design patterns such as dependency injection and the repository interface are used to achieve modularity, flexibility, and ease of testing.</p>
+<p>Opting for <code>TypeScript</code>, be sure to use types throughout your code to improve security and readability.</p>
+<p>swapi-server.</p>
+<ul>
+<li><code>api</code>: Exposes access points for clients to interact with the application.</li>
+<li><code>application</code>: Contains the application logic, including handlers and other service classes.</li>
+<li><code>domain</code>: Contains domain classes and repository interfaces.</li>
+<li><code>infrastructure</code>: Implements the application infrastructure, including repositories and any other data access logic.</li>
+</ul>
+<p>swapi-client.</p>
+<ul>
+<li><code>components</code>: Functional react components to build your interfaces. Take advantage of Hooks to manage the life cycle and local state of components.</li>
+<li><code>models</code>: Defines the application data strcured models.</li>
+</ul>
+<a id="md:design-patterns" class="tsd-anchor"></a><h2><a href="#md:design-patterns">Design Patterns</a></h2><ul>
+<li><code>Dependency Injection</code>: This pattern allows for inversion of control and separation of object creation and use.</li>
+<li><code>Repository</code>: Implements ports and repository interfaces to interact with data sources. This allows the database implementation to be kept separate from the business logic, making it easier to test and persist changes.</li>
+<li><code>Use Case / Interactor</code>: Within the use case layer, individual use cases can be implemented as independent classes, known as interactors or use cases. Each use case has a single responsibility and encapsulates the related business logic.</li>
+</ul>
+<a id="md:install-amp-dependence" class="tsd-anchor"></a><h2><a href="#md:install-amp-dependence">Install &amp; Dependence</a></h2><a id="md:docker-containerization" class="tsd-anchor"></a><h4><a href="#md:docker-containerization">Docker Containerization</a></h4><p>This project is containerized using <code>Docker</code> to facilitate the management and execution of services in isolated and reproducible environments. Docker allows you to package all the necessary dependencies and configurations in containers, which simplifies the deployment and scalability process.</p>
+<p>Make sure you have <code>Docker</code> and <code>Docker Compose</code> installed on your system:</p>
+<ul>
+<li>Docker: <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a></li>
+<li>Docker Compose: <a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></li>
+</ul>
+<a id="md:structure-of-docker-composeyml" class="tsd-anchor"></a><h4><a href="#md:structure-of-docker-composeyml">Structure of <code>docker-compose.yml</code></a></h4><p>The <code>docker-compose.yml</code> file defines the services needed to run the project. Here is a description of the services included:</p>
+<ul>
+<li><p><strong>swapi-database</strong>: This service uses the MongoDB image to provide a database for the application. It runs on port <code>27017</code>.</p>
+</li>
+<li><p><strong>swapi-server</strong>: This service is the main part of the application. It is built from the <code>./swapi-server</code> directory and is configured using the environment variables defined in the file. Depending on <code>swapi-database</code>, it runs on port <code>8080</code> and binds to the database service.</p>
+</li>
+<li><p><strong>swapi-client</strong>: This service is the client of the application. It is built from the <code>./swapi-client</code> directory and runs on port <code>3030</code>.</p>
+</li>
+</ul>
+<p>To run the project using <code>Docker Compose</code>follow these steps:</p>
+<ol>
+<li><p>Clone this repository: <code>git clone https://github.com/your-user/your-repo.git</code>.</p>
+</li>
+<li><p>Navigate to the project directory: <code>cd your-repo</code>.</p>
+</li>
+<li><p>Build the containers: <code>docker-compose build --no-cache</code>.</p>
+</li>
+<li><p>Run containers services: <code>docker-compose up</code>.</p>
+</li>
+<li><p>Open browser and go: ``.</p>
+</li>
+</ol>
+<a id="md:important" class="tsd-anchor"></a><h4><a href="#md:important">Important</a></h4><ul>
+<li><p>Make sure to properly set the environment variables in the <code>docker-compose.yml</code> file to match the necessary configuration of the project.</p>
+</li>
+<li><p>If you want to stop the services, run: <code>docker-compose down</code>.</p>
+</li>
+</ul>
+<a id="md:license" class="tsd-anchor"></a><h2><a href="#md:license">License</a></h2><p><a href="https://opensource.org/license/mit/">MIT</a></p>
+</div></div>
+<div class="col-sidebar">
+<div class="page-menu">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)" id="icon-chevronDown"></path></svg>Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#icon-chevronDown"></use></svg>On This Page</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li>
+<ul>
+<li><a href="#md:swapi-people"><span>SWAPI <wbr/>People</span></a></li>
+<li>
+<ul>
+<li><a href="#md:features--use-cases"><span>Features / <wbr/>Use <wbr/>Cases</span></a></li>
+<li><a href="#md:architecture"><span>Architecture</span></a></li>
+<li><a href="#md:design-patterns"><span>Design <wbr/>Patterns</span></a></li>
+<li><a href="#md:install-amp-dependence"><span>Install &amp; <wbr/>Dependence</span></a></li>
+<li>
+<ul>
+<li><a href="#md:docker-containerization"><span>Docker <wbr/>Containerization</span></a></li>
+<li>
+<ul>
+<li><a href="#md:structure-of-docker-composeyml"><span>Structure of docker-<wbr/>compose.yml</span></a></li>
+<li><a href="#md:important"><span>Important</span></a></li></ul></li></ul></li>
+<li><a href="#md:license"><span>License</span></a></li></ul></li></ul></li></ul></div></details></div>
+<div class="site-menu">
+<nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-4"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-namespace)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6"></rect><path d="M9.33 16V7.24H10.77L13.446 14.74C13.43 14.54 13.41 14.296 13.386 14.008C13.37 13.712 13.354 13.404 13.338 13.084C13.33 12.756 13.326 12.448 13.326 12.16V7.24H14.37V16H12.93L10.266 8.5C10.282 8.692 10.298 8.936 10.314 9.232C10.33 9.52 10.342 9.828 10.35 10.156C10.366 10.476 10.374 10.784 10.374 11.08V16H9.33Z" fill="var(--color-text)"></path></g></svg><span>swapi-<wbr/>server</span></a>
+<ul class="tsd-small-nested-navigation">
+<li><a href="modules/api_App.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>api/<wbr/>App</span></a></li>
+<li><a href="modules/api_controllers_PeopleController.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>api/controllers/<wbr/>People<wbr/>Controller</span></a></li>
+<li><a href="modules/api_models_AppDIContainer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>api/models/<wbr/>AppDIContainer</span></a></li>
+<li><a href="modules/api_models_AppServer.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>api/models/<wbr/>App<wbr/>Server</span></a></li>
+<li><a href="modules/api_models_SocketInstance.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>api/models/<wbr/>Socket<wbr/>Instance</span></a></li>
+<li><a href="modules/application_dtos_PeopleDTO.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>application/dtos/<wbr/>PeopleDTO</span></a></li>
+<li><a href="modules/application_useCases_GetPeople.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>application/use<wbr/>Cases/<wbr/>Get<wbr/>People</span></a></li>
+<li><a href="modules/application_useCases_SavePeople.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>application/use<wbr/>Cases/<wbr/>Save<wbr/>People</span></a></li>
+<li><a href="modules/domain_entities_People.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>domain/entities/<wbr/>People</span></a></li>
+<li><a href="modules/domain_interfaces_IPeopleRepository.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>domain/interfaces/IPeople<wbr/>Repository</span></a></li>
+<li><a href="modules/infrastructure_PeopleDbService.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>infrastructure/<wbr/>People<wbr/>Db<wbr/>Service</span></a></li>
+<li><a href="modules/infrastructure_repositories_PeopleRepository.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>infrastructure/repositories/<wbr/>People<wbr/>Repository</span></a></li>
+<li><a href="modules/infrastructure_schemas_PeopleSchema.html"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-4"></use></svg><span>infrastructure/schemas/<wbr/>People<wbr/>Schema</span></a></li></ul></nav></div></div></div>
+<div class="tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div></body></html>

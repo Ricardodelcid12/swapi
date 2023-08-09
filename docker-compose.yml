@@ -1,0 +1,28 @@
+version: "3"
+services:
+  swapi-database:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+  swapi-server:
+    restart: always
+    build: ./swapi-server
+    environment:
+      - PORT=8080
+      - HOST=localhost
+      - DB_HOST=swapi-database
+      - DB_PORT=27017
+      - DB_NAME=swapidb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - swapi-database
+    links:
+      - swapi-database
+    volumes:
+      - .:/usr/src/app
+  swapi-client:
+    build: ./swapi-client
+    ports:
+      - "3030:3030"
