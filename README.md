@@ -51,7 +51,7 @@ The `docker-compose.yml` file defines the services needed to run the project. He
 
 To run the project using `Docker Compose`follow these steps:
 
-1. Clone this repository: `git clone [https://github.com/your-user/your-repo.git](https://github.com/Ricardodelcid12/swapi.git)`.
+1. Clone this repository: `git clone https://github.com/Ricardodelcid12/swapi.git`.
 
 2. Navigate to the project directory: `cd your-repo`.
 
